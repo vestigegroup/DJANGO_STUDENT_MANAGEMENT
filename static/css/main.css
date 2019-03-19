@@ -1,0 +1,89 @@
+/*
+=======COLORS=======
+        #cdffeb
+        #ffaaaa
+        #c7004c
+        #b40535
+*/
+
+/*  GENERIC CLASSES AND IDS  */
+.bg-custom1 {
+	background: #c7004c;
+}
+
+.bg-custom1-fade {
+	background: #c7004c;
+	opacity: .8;
+}
+
+.container-fluid {
+	padding-left: 25px !important;
+	padding-right: 25px !important;
+}
+
+#todobtn {
+	cursor: pointer;
+}
+
+.modal-backdrop {
+    opacity:0.8 !important;
+}
+
+
+/* END GENERICS */
+
+body {
+	background: #f4f4f4;
+}
+
+#nav-main {
+	padding: 0 !important;
+}
+
+.navbar-nav {
+	min-height: 43px !important;
+	margin-bottom: 0;
+}
+
+
+.navbar-brand {
+	font-size: 20px;
+	margin-top: -4px;
+	font-weight: bold;
+}
+
+.nav-item.active {
+	background-color: #b40535;
+}
+
+/*  Header */
+#header {
+	background-color: #cdffeb;
+}
+
+
+/*Mainleft*/
+.list-group-item-action.active {
+	background-color: #c7004c;
+	border: none;
+}
+
+
+#footer {
+	background: #c7004c;
+}
+
+
+
+
+
+/* RESPONSIVE */
+@media screen and (max-width: 767px) {
+  .hide-on-767 {
+  	display: none;
+  }
+
+  #ButtonAction.mt-4 {
+  	margin-top: -20px;
+  }
+}
