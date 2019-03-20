@@ -1,0 +1,23 @@
+/* CLUB PAGE */
+a.btn:hover {
+    color: rgb(225, 225, 226) !important;
+}
+
+.bg-custom1-dark {
+	background: #00b894;
+    color: #fff;
+    border-bottom-width: calc(.2rem + .0625rem);
+    border-color: rgba(0,0,0,0.2);
+}
+
+#clubname {
+    font-family: 'Montserrat', sans-serif;
+    text-transform: uppercase;
+    font-size: 18px;
+    margin-top: 10px;
+}
+
+#noxpadding {
+    margin-left: -15px !important;
+    margin-right: -10px !important;
+}

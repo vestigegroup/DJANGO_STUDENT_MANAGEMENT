@@ -1,0 +1,41 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block body %}
+
+<div class="col-md-12 m-0 p-0 pb-3">
+    <button type="button" class="btn bg-custom1">All activities</button>
+    <a href="#" class="btn bg-custom1-dark ml-2">
+        Arrange new
+        <i class="fas fa-plus ml-1"></i>
+    </a>
+    <a href="{% url 'clubs:clubshome' %}" class="btn bg-custom1 float-right">
+        <i class="fas fa-backward mr-1"></i>Back to club
+    </a>
+    <table class="table table-bordered mt-2">
+        <thead>
+            <tr>
+                <th scope="col">Club</th>
+                <th scope="col">Session</th>
+                <th scope="col">Date</th>
+                <th scope="col">Action</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for record in clubs %}
+            <tr>
+                <td style="width: 27%">{{ record.club }}</td>
+                <td style="width: 27%">{{ record.session_no }}</td>
+                <td style="width: 27%">{{ record.date }}</td>
+                <td style="width: 10%;">
+                    <div class="btn-group-sm mx-auto" role="group" aria-label="Basic example">
+                        <button type="button" class="btn btn-success"><i class="fas fa-pen-square"></i></button>
+                        <button type="button" class="btn btn-danger"><i class="far fa-trash-alt"></i></button>
+                    </div>
+                </td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
+
+{% endblock %}

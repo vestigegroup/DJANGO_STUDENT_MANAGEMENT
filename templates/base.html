@@ -5,26 +5,30 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <title>DPI SMS: </title>
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<!-- GOOGLE FONTS -->
+		<link href="https://fonts.googleapis.com/css?family=Montserrat:400i" rel="stylesheet"> 
     <!-- FONTAWESOME -->
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css">
     <!-- BOOTSTRAP -->
     <link rel="stylesheet" href="{% static 'css/bootstrap/bootstrap.min.css' %}">
     <!-- CUSTOM CSS -->
-    <link rel="stylesheet" href="{% static 'css/main.css' %}">
+		<link rel="stylesheet" href="{% static 'css/main.css' %}">
+		<!-- clubs css -->
+		<link rel="stylesheet" href="{% static 'clubs/css/club.css' %}">
 </head>
-<body>
+<body id="body">
     <!-- NAVBAR -->
 	<nav class="navbar navbar-expand-lg navbar-dark bg-custom1" id="nav-main">
         <div class="container-fluid">
-            <a class="navbar-brand" href="#">Dashy</a>
+            <a class="navbar-brand" href="{% url 'mainapp:home' %}">Dashy</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse" id="navbarNav">
           <ul class="navbar-nav mr-auto">
             <li class="nav-item active">
-              <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+              <a class="nav-link" href="{% url 'mainapp:home' %}">Home <span class="sr-only">(current)</span></a>
             </li>
             <li class="nav-item">
               <a class="nav-link" href="#">Stuff</a>
@@ -95,7 +99,7 @@
 					  	<span><i class="fas fa-building"></i></span> Campus
 					  	<span class="badge badge-dark float-right">20</span>
 					  </a>
-					  <a href="#" class="list-group-item list-group-item-action">
+					  <a href="{% url 'clubs:clubshome' %}" class="list-group-item list-group-item-action">
 					  	<span><i class="fas fa-network-wired"></i></span> Clubs
 					  	<span class="badge badge-dark float-right">20</span>
 					  </a>
@@ -121,8 +125,8 @@
 				<!-- for all pages -->
 				<div class="col-md-9">
 					<div class="row"> <!-- row1 -->
-                        {% block body %}
-                        {% endblock %}
+            {% block body %}
+            {% endblock %}
 					</div>
 				</div> <!-- main area -->
 			</div> <!-- row -->
@@ -131,27 +135,27 @@
 
 
     <!-- FOOTER -->
-    <footer id="footer">
-		<div class="py-1 mt-5 container">
-			<div class="d-flex justify-content-between mt-1">
-				<div class="col-md-4xx">
-					<h6 class="text-light">DPI &copy; 2019</h6>
-				</div>
-				<div class="col-md-4xx">
-					<h6 class="text-light">Developed by <em>tareqmonwer</em></h6>
-				</div>
-				<div class="col-md-4xx">
-					<h6 class="text-light">Powered by Django, Bootstrap4</h6>
-				</div>
+<footer id="footer">
+	<div class="py-1 mt-5 container">
+		<div class="d-flex justify-content-between mt-1">
+			<div class="col-md-4xx">
+				<h6 class="text-light">DPI &copy; 2019</h6>
+			</div>
+			<div class="col-md-4xx">
+				<h6 class="text-light">Developed by <em>tareqmonwer</em></h6>
+			</div>
+			<div class="col-md-4xx">
+				<h6 class="text-light">Powered by Django, Bootstrap4</h6>
 			</div>
 		</div>
-	</footer>
+	</div>
+</footer>
 
-    <!-- JQUERY -->
+  	<!-- JQUERY -->
     <script src="{% static 'js/jquery-3.3.1.min.js' %}"></script>
     <!-- POPPER JS -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"></script>
     <!-- BOOTSTRAP JS -->
-    <script src="{% static 'js/bootstrap.min.js' %}"></script>
+  	<script src="{% static 'js/bootstrap.min.js' %}"></script>
 </body>
 </html>

@@ -1,6 +1,7 @@
 {% extends 'base.html' %}
 {% block body %}
 {% load static %}
+
 <div class="col-md-12 mb-3">
     <!-- top row -->
     <div class="card">
@@ -10,21 +11,21 @@
                 <div class="col-md-3 text-center border-right">
                     <div class="well das-box">
                         <h2><i class="fas fa-user-friends"></i></h2>
-                        <h4 class="text-muted">3000</h4>
+                        <h4 class="text-muted">{{students.count}}</h4>
                         <h4>students</h4>
                     </div>
                 </div>
                 <div class="col-md-3 text-center border-right">
                     <div class="well">
                         <h2><i class="fas fa-chalkboard-teacher"></i></h2>
-                        <h4 class="text-muted">50</h4>
+                        <h4 class="text-muted">{{teachers.count}}</h4>
                         <h4>teachers</h4>
                     </div>
                 </div>
                 <div class="col-md-3 text-center border-right">
                     <div class="well">
                         <h2><i class="fas fa-network-wired"></i></h2>
-                        <h4 class="text-muted">10</h4>
+                        <h4 class="text-muted">{{clubs.count}}</h4>
                         <h4>clubs</h4>
                     </div>
                 </div>
@@ -85,18 +86,19 @@
             <div class="col-md-6 mb-3">
                 <!-- meetings -->
                 <div class="card bg-warning text-light">
-                    <div class="card-body">
-                        {% if meeting %}
-                        <h4>There is a meeting at </h4>
+                    <div class="card-body" id="meetingbtn" data-toggle="modal" data-target="#Modalmeeting">
+                        {% if meetings %}
+                        <h4>Some meetings are scheduled</h4>
                         <span class="badge badge-dark">
-                            {% for lastmeeting in meeting %}
-                            {{ lastmeeting.date|date:"Y-m-d:g-i" }}
-                            {% endfor %}
+                            {{ meetings.count }}
                         </span>
+                        {% else %}
+                        <h4>No meeting scheduled</h4>
                         {% endif %}
                     </div>
                 </div>
             </div>
+
             <div class="col-md-6 mb-3">
                 <!-- student care -->
                 <div class="card bg-danger text-light">
@@ -106,26 +108,55 @@
                     </div>
                 </div>
             </div>
+
             <div class="col-md-6 mb-3">
                 <!-- todo -->
                 <div class="card bg-secondary text-light">
                     <div class="card-body" id="todobtn" data-toggle="modal" data-target="#Modaltodo">
                         <p>
-                            ToDo List</p>
+                            ToDo List
+                        </p>
                     </div>
                 </div>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+
+<!-- Modal for meetings -->
+<div class="modal fade" id="Modalmeeting" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+    aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header bg-custom1 text-light">
+                <h5 class="modal-title" id="exampleModalLabel">Meetings Detail</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <ul class="list-group">
+                    {% for meeting in meetings %}
+                    <li class="list-group-item"><span>{{ meeting }} </span></li>
+                    {% endfor %}
+                </ul>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn bg-custom1 text-light" data-dismiss="modal">Close</button>
             </div>
         </div>
     </div>
 </div>
 
-<!-- Modal -->
+<!-- Modal for todo -->
 <div class="modal fade" id="Modaltodo" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
     aria-hidden="true">
     <div class="modal-dialog" role="document">
         <div class="modal-content">
             <div class="modal-header bg-custom1 text-light">
-                <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+                <h5 class="modal-title" id="exampleModalLabel">My Todo Board</h5>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                 </button>

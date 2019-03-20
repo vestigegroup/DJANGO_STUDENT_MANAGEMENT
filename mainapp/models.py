@@ -25,3 +25,4 @@ class EventGallery(models.Model):
 
     def __str__(self):
         return f"{self.name} | {self.country} | {self.city} | {str(self.date)}"
+

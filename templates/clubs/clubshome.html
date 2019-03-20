@@ -1,0 +1,77 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block body %}
+
+<div class="col-md-12 border rounded p-2">
+    <div class="container-fluid">
+        <div class="row">
+            {% for club in topclubs %}
+            <div class="col-md-3 text-center py-1">
+                <img class="rounded-circle" src="{% static 'clubs/images/club-icon.png' %}" alt="logo" height="100" width="100">
+                <h4 id="clubname">{{ club.name }}</h4>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</div>
+
+<div class="col-md-12 mt-3 m-0 p-0 border-bottom pb-3">
+    <button type="button" class="btn bg-custom1 mt-5" style="cursor:default">Club activities</button>
+    <a href="#" class="btn bg-custom1-dark mt-5 ml-2">
+        Arrange new
+        <i class="fas fa-plus ml-1"></i>
+    </a>
+    <table class="table table-bordered mt-2">
+        <thead>
+            <tr>
+                <th scope="col">Club</th>
+                <th scope="col">Session</th>
+                <th scope="col">Date</th>
+                <th scope="col">Action</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for activity in activities|slice:":4" %}
+            <tr>
+                <td style="width: 27%">{{ activity.club }}</td>
+                <td style="width: 27%">{{ activity.session_no }}</td>
+                <td style="width: 27%">{{ activity.date }}</td>
+                <td style="width: 10%;">
+                    <div class="btn-group-sm mx-auto" role="group" aria-label="Basic example">
+                        <button type="button" class="btn bg-custom1-dark"><i class="fas fa-pen-square"></i></button>
+                        <button type="button" class="btn bg-custom1"><i class="far fa-trash-alt"></i></button>
+                    </div>
+                </td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    <a href="{% url 'clubs:history' %}" class="btn bg-custom1 mt-2 float-right">
+        <i class="fas fa-forward mr-1"></i>Show all
+    </a>   
+</div>
+
+<!-- Club Detail -->
+<button type="button" class="btn bg-custom1 mt-5">Club details</button>
+<div class="containerfluid">
+    <div class="row" id="noxpadding">
+        {% for clb in allclubs %}
+        <div class="col-md-4 my-2 text-center">
+            <div class="card-group">
+                <div class="card">
+                    <img class="card-img-top" src="{% static 'clubs/images/placeholder.png' %}" alt="Card image cap">
+                    <div class="card-body">
+                        <h5 class="card-title">{{ clb.name }}</h5>
+                        <p class="card-text">{{ clb.short_desc }}</p>
+                    </div>
+                    <div class="card-footer">
+                        <p><strong>{{ clb.coach }}</strong></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+</div>
+
+{% endblock %}

@@ -1,3 +1,4 @@
+
 /*
 =======COLORS=======
         #cdffeb
@@ -9,11 +10,32 @@
 /*  GENERIC CLASSES AND IDS  */
 .bg-custom1 {
 	background: #c7004c;
+	color: #fff;
+	border-bottom-width: calc(.2rem + .0625rem);
+	border-color: rgba(0,0,0,0.2);
 }
 
 .bg-custom1-fade {
 	background: #c7004c;
+	color: #fff;
 	opacity: .8;
+	border-bottom-width: calc(.2rem + .0625rem);
+	border-color: rgba(0,0,0,0.2);
+}
+
+.bg-custom1-dark {
+	background: #00b894;
+	color: #fff;
+	border-bottom-width: calc(.2rem + .0625rem);
+	border-color: rgba(0,0,0,0.2);
+}
+
+.btn:focus {
+  outline: none !important;
+}
+
+.btn:focus{
+	box-shadow:none !important;
 }
 
 .container-fluid {
@@ -21,7 +43,7 @@
 	padding-right: 25px !important;
 }
 
-#todobtn {
+#todobtn, #meetingbtn {
 	cursor: pointer;
 }
 
@@ -72,6 +94,13 @@ body {
 #footer {
 	background: #c7004c;
 }
+
+
+
+
+
+
+
 
 
 
