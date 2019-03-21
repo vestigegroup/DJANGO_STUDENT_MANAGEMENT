@@ -51,11 +51,27 @@
     opacity:0.8 !important;
 }
 
+/* For custom progressbar circle */
+
+
 
 /* END GENERICS */
 
+
+
+
+
+
 body {
 	background: #f4f4f4;
+}
+
+p {
+	font-family: 'Poppins', sans-serif;
+	font-size: 16px;
+	letter-spacing: 0;
+	line-height: 24px;
+	font-weight: 400;
 }
 
 #nav-main {

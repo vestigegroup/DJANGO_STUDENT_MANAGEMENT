@@ -1,0 +1,158 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block body %}
+
+<!-- Instructor SideCards -->
+<div class="col-md-4">
+    <!-- Pic and actions -->
+    <div class="row">
+        <div class="col-md-12 m-0 p-0 rounded" style="border-top: 3px solid #c7004c;">
+            <div class="card">
+                <div class="card-body text-center">
+                    <img class="rounded-circle border" src="{% static 'images/event1.jpg' %}" alt="" height="100" width="100">
+                    <h4>{{ instructor.name }}</h4>
+                    <p class="text-muted">{{ instructor.designation }}</p>
+                    <!-- Buttons -->
+                    <div style="padding:0 21%;">
+                    <a href="#" class="btn bg-custom1 float-left">Bio</a>
+                        <div class="col-md-2 p-0 m-0 float-left ml-1" id="ButtonAction">
+                            <div class="dropdown">
+                                <button class="btn bg-custom1-dark text-light dropdown-toggle" type="button" data-toggle="dropdown"
+                                    aria-haspopup="true" aria-expanded="false">
+                                    Promotion
+                                </button>
+                                <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                                    <a class="dropdown-item" href="#">Level 1</a>
+                                    <a class="dropdown-item" href="#">Level 2</a>
+                                    <a class="dropdown-item" href="#">Level 3</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Instructor About Card -->
+    <div class="row mt-2">
+        <div class="col-md-12 m-0 p-0">
+            <div class="card">
+                <div class="card-header">
+                    <h5>About Mr.{{ instructor.name }}</h5>
+                </div>
+                <div class="card-body">
+                    Lorem ipsum dolor, sit amet consectetur adipisicing elit. Aliquam, consequuntur.
+                </div>
+                <ul class="list-group list-group-flush">
+                    <li class="list-group-item">
+                        <span class="font-weight-bold float-left">Gender:</span>
+                        <span class="float-right">Male</span>
+                    </li>
+                    <li class="list-group-item">
+                        <span class="font-weight-bold float-left">Age:</span>
+                        <span class="float-right">35</span>
+                    </li>
+                    <li class="list-group-item">
+                        <span class="font-weight-bold float-left">Qualification:</span>
+                        <span class="float-right">Msc. in CSE</span>
+                    </li>
+                    <li class="list-group-item">
+                        <span class="font-weight-bold float-left">Tasks:</span>
+                        <span class="float-right">50+</span>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <!-- Instructor Field Expertise Card -->
+    <div class="row mt-2">
+        <div class="col-md-12 m-0 p-0">
+            <div class="card">
+                <div class="card-header">
+                    <h5>Field of expertise</h5>
+                </div>
+                <ul class="list-group list-group-flush">
+                    <li class="list-group-item">
+                        <span class="float-left font-weight-bold">HTML,CSS,Js</span>
+                        <span class="float-right">
+                            75%
+                        </span>
+                    </li>
+                    <li class="list-group-item">
+                        <span class="float-left font-weight-bold">Python</span>
+                        <span class="float-right">
+                            85%
+                        </span>
+                    </li>
+                    <li class="list-group-item">
+                        <span class="float-left font-weight-bold">Math</span>
+                        <span class="float-right">
+                            55%
+                        </span>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Instructor Main -->
+<div class="col-md-8">
+    <div class="card">
+        <div class="card-header">
+            <h4>{{ instructor.name }}</h4>
+        </div>
+        <div class="card-body">
+            <!-- teacher info table -->
+            <table class="table table-borderless">
+                <thead>
+                    <tr>
+                        <th scope="col">Moblile</th>
+                        <th scope="col">Email</th>
+                        <th scope="col">Address</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>{{ instructor.phone }}</td>
+                        <td>Not Available</td>
+                        <td>Not Available</td>
+                    </tr>
+                </tbody>
+            </table>
+            <hr>
+            <div class="describe">
+                <p>
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Odio corporis tenetur quas cupiditate expedita sed unde maiores, sunt aliquid dolor amet rerum ab. Nulla, tempora vero eveniet pariatur at maiores.
+                </p>
+                <p>
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptate dolor natus nobis unde iusto quisquam animi error magnam officia rem.
+                </p>
+                <p>
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Odio, ex.
+                </p>
+            </div>
+            <hr>
+            <div class="education">
+                <h4>Education</h4>
+                <ul>
+                    <li>educational timeline</li>
+                    <li>educational timeline</li>
+                    <li>educational timeline</li>
+                </ul>
+            </div>
+            <div class="experience">
+                <h4>Experience</h4>
+                <ul>
+                    <li>educational timeline</li>
+                    <li>educational timeline</li>
+                    <li>educational timeline</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <a href="#" class="btn btn-danger mt-2 float-right">Delete profile 
+        <i class="far fa-trash-alt"></i>
+    </a>
+</div>
+
+{% endblock %}

@@ -1,1 +1,53 @@
 {% extends 'base.html' %}
+{% load static %}
+{% block body %}
+
+<div class="col-md-12">
+    <div class="col-md-2 ml-0 pl-0 mb-2 float-left" id="ButtonAction">
+        <div class="dropdown">
+            <button class="btn bg-custom1 text-light dropdown-toggle" type="button" data-toggle="dropdown"
+                aria-haspopup="true" aria-expanded="false">
+                All teachers
+            </button>
+            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                <a class="dropdown-item" href="#">Order by joining date</a>
+                <a class="dropdown-item" href="#">Order by ID</a>
+                <a class="dropdown-item" href="#">Order by designation</a>
+            </div>
+        </div>
+    </div> <!-- All teacher filter dropdown -->
+    <a href="" class="btn bg-custom1-dark float-left" style="margin-left: -25px;">
+        Add new teacher
+        <i class="fas fa-plus ml-1"></i>
+    </a>
+    <table class="table table-bordered table-hover"> 
+        <thead>
+          <tr>
+            <th scope="col">ID</th>
+            <th scope="col">Name</th>
+            <th scope="col">Joined Date</th>
+            <th scope="col">Contact</th>
+          </tr>
+        </thead>
+        <tbody>
+        {% for teacher in teachers %}
+          <tr>
+            <th scope="row"><a class="text-dark" href="">
+                {{ teacher.techer_id }}
+            </a></th>
+            <td><a href="{% url 'teachers:teacher_detail' teacher.id %}" class="text-dark">
+                {{ teacher.name }}
+            </a></td>
+            <td><a href="" class="text-dark">
+                {{ teacher.joined }}
+            </a></td>
+            <td><a href="" class="text-dark">
+                {{ teacher.phone }}
+            </a></td>
+          </tr>
+        {% endfor %}
+        </tbody>
+      </table> <!-- teachers list table -->
+</div>
+
+{% endblock %}
