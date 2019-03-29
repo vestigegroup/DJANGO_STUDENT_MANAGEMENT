@@ -32,16 +32,16 @@
         <tbody>
         {% for teacher in teachers %}
           <tr>
-            <th scope="row"><a class="text-dark" href="">
+            <th scope="row"><a class="text-dark" href="{% url 'teachers:teacher_detail' teacher.id %}">
                 {{ teacher.techer_id }}
             </a></th>
             <td><a href="{% url 'teachers:teacher_detail' teacher.id %}" class="text-dark">
                 {{ teacher.name }}
             </a></td>
-            <td><a href="" class="text-dark">
+            <td><a href="{% url 'teachers:teacher_detail' teacher.id %}" class="text-dark">
                 {{ teacher.joined }}
             </a></td>
-            <td><a href="" class="text-dark">
+            <td><a href="{% url 'teachers:teacher_detail' teacher.id %}" class="text-dark">
                 {{ teacher.phone }}
             </a></td>
           </tr>

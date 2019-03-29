@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import redirect, render
 from mainapp.models import Meeting, ToDo, EventGallery
 from students.models import Student
 from teachers.models import Teacher
@@ -27,3 +27,8 @@ def home(request):
 
 def dummy(request):
     return render(request, 'dummy.html')
+
+
+def redirectView(request):
+    response = redirect('/welcome/')
+    return response

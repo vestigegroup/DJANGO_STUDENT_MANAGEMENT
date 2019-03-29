@@ -81,8 +81,8 @@
 			<div class="row">
 				<!-- SIDEBAR -->
 				<div class="col-md-3">
-					<div class="list-group">
-					  <a href="#" class="list-group-item list-group-item-action active">
+					<div class="list-group" id="sidenav">
+					  <a href="{% url 'mainapp:home' %}" class="list-group-item list-group-item-action active">
 					    <span><i class="fas fa-cogs"></i></span> Dashboard
 					  </a>
 					  <a href="#" class="list-group-item list-group-item-action"><span>
@@ -158,6 +158,10 @@
     <!-- POPPER JS -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"></script>
     <!-- BOOTSTRAP JS -->
-  	<script src="{% static 'js/bootstrap.min.js' %}"></script>
+		<script src="{% static 'js/bootstrap.min.js' %}"></script>
+		<script type="text/javascript" src="{% static 'js/base.js' %}"></script>
+
+		<script>
+		</script>
 </body>
 </html>

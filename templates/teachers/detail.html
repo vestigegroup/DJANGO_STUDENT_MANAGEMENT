@@ -9,9 +9,9 @@
         <div class="col-md-12 m-0 p-0 rounded" style="border-top: 3px solid #c7004c;">
             <div class="card">
                 <div class="card-body text-center">
-                    <img class="rounded-circle border" src="{% static 'images/event1.jpg' %}" alt="" height="100" width="100">
+                    <img class="rounded-circle border" src="{{ details.image.url }}" height="130" width="130">
                     <h4>{{ instructor.name }}</h4>
-                    <p class="text-muted">{{ instructor.designation }}</p>
+                    <p class="text-muted">{{ instructor.designation|title }}</p>
                     <!-- Buttons -->
                     <div style="padding:0 21%;">
                     <a href="#" class="btn bg-custom1 float-left">Bio</a>
@@ -38,34 +38,34 @@
         <div class="col-md-12 m-0 p-0">
             <div class="card">
                 <div class="card-header">
-                    <h5>About Mr.{{ instructor.name }}</h5>
+                    <h5>About Mr. {{ instructor.name }}</h5>
                 </div>
                 <div class="card-body">
-                    Lorem ipsum dolor, sit amet consectetur adipisicing elit. Aliquam, consequuntur.
+                    {{ details.shortBio }}
                 </div>
                 <ul class="list-group list-group-flush">
                     <li class="list-group-item">
                         <span class="font-weight-bold float-left">Gender:</span>
-                        <span class="float-right">Male</span>
+                        <span class="float-right">{{ details.gender }}</span>
                     </li>
                     <li class="list-group-item">
                         <span class="font-weight-bold float-left">Age:</span>
-                        <span class="float-right">35</span>
+                        <span class="float-right">{{ instructorAge }}</span>
                     </li>
                     <li class="list-group-item">
                         <span class="font-weight-bold float-left">Qualification:</span>
-                        <span class="float-right">Msc. in CSE</span>
+                        <span class="float-right">{{ details.qualification }}</span>
                     </li>
                     <li class="list-group-item">
-                        <span class="font-weight-bold float-left">Tasks:</span>
-                        <span class="float-right">50+</span>
+                        <span class="font-weight-bold float-left">Joined in:</span>
+                        <span class="float-right">{{ instructor.joined }}</span>
                     </li>
                 </ul>
             </div>
         </div>
     </div>
     <!-- Instructor Field Expertise Card -->
-    <div class="row mt-2">
+    <div class="row mt-2 text-muted">
         <div class="col-md-12 m-0 p-0">
             <div class="card">
                 <div class="card-header">
@@ -99,7 +99,7 @@
 <div class="col-md-8">
     <div class="card">
         <div class="card-header">
-            <h4>{{ instructor.name }}</h4>
+            <h4>{{ instructor.name }}: <span class="text-muted">{{ instructor.techer_id }}</span></h4>
         </div>
         <div class="card-body">
             <!-- teacher info table -->
@@ -114,30 +114,24 @@
                 <tbody>
                     <tr>
                         <td>{{ instructor.phone }}</td>
-                        <td>Not Available</td>
-                        <td>Not Available</td>
+                        <td>{{ details.email }}</td>
+                        <td>{{  details.homeDistrict|capfirst }}</td>
                     </tr>
                 </tbody>
             </table>
             <hr>
             <div class="describe">
                 <p>
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Odio corporis tenetur quas cupiditate expedita sed unde maiores, sunt aliquid dolor amet rerum ab. Nulla, tempora vero eveniet pariatur at maiores.
-                </p>
-                <p>
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptate dolor natus nobis unde iusto quisquam animi error magnam officia rem.
-                </p>
-                <p>
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Odio, ex.
+                    {{ details.description }}
                 </p>
             </div>
             <hr>
             <div class="education">
                 <h4>Education</h4>
                 <ul>
-                    <li>educational timeline</li>
-                    <li>educational timeline</li>
-                    <li>educational timeline</li>
+                    {% for qualification in qualifications %}
+                    <li>{{ qualification }}</li>
+                    {% endfor %}
                 </ul>
             </div>
             <div class="experience">
@@ -153,6 +147,12 @@
     <a href="#" class="btn btn-danger mt-2 float-right">Delete profile 
         <i class="far fa-trash-alt"></i>
     </a>
+</div>
+
+<div class="fixed-bottom p-4 float-right">
+    <a href="{% url 'teachers:teachershome' %}" class="btn bg-custom1 float-right">
+        <i class="fas fa-backward"></i>
+        Back</a>
 </div>
 
 {% endblock %}

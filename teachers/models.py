@@ -8,27 +8,47 @@ class Teacher(models.Model):
     designation = models.CharField(null=False, max_length=30)
     joined = models.DateField('Year-Month')
     phone = models.CharField(null=True, max_length=12)
+    
+    
     def __str__(self):
         return self.name
 
 
-class TeacherDetail(models.Model):
+class TeacherInfo(models.Model):
+    name = models.ForeignKey(Teacher, on_delete=models.CASCADE)
+    image = models.ImageField(upload_to='media')
+    gender = models.CharField(max_length=7)
+    qualification = models.CharField(max_length=20)
+    dateOfBirth = models.DateField()
+    shortBio = models.CharField(max_length=85)
+    email = models.EmailField(max_length=30)
+    homeDistrict = models.CharField(max_length=20)
+    currentLocation = models.CharField(max_length=80)
+    description = models.TextField(max_length=400)
+
+    def __str__(self):
+        return str(self.name)
+
+
+
+class EduLevel(models.Model):
+    ''' This is to generate educational levels like
+    ssc/hsc etc 
+    '''
     teacher = models.ForeignKey(Teacher, on_delete=models.CASCADE)
-    dept = models.ForeignKey('departments.Department', on_delete=models.CASCADE)
-    short_bio = models.TextField(max_length=100)
-    gender = models.CharField(max_length=6)
-    birthdate = models.DateField()
-    qualification = models.CharField(max_length=100)
-    englis_skill = models.CharField(max_length=10)
-    math_skill = models.CharField(max_length=10, blank=True, null=True)
-    programming_skill = models.CharField(max_length=10, blank=True, null=True)
+    grade = models.CharField(max_length=15)
+    yearCompleted = models.DateField()
+    instituteName = models.CharField(max_length=100)
+
+    def __str__(self):
+        return self.grade
+
+
+
+class TeacherQualification(models.Model):
+    teacher = models.ForeignKey(Teacher, on_delete=models.CASCADE)
+    level = models.ManyToManyField(EduLevel)
 
     def __str__(self):
         return str(self.teacher)
-
-    def age(self, dob):
-        dob = self.birthdate
-        today = date.today()
-        return today.year - dob.year - ((today.month, today.day) < (dob.month, dob.day))
-    
 
