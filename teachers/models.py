@@ -4,12 +4,11 @@ from datetime import date
 
 class Teacher(models.Model):
     name = models.CharField(max_length=30)
-    techer_id = models.CharField(unique=True, blank=True, null=True, max_length=6)
+    techer_id = models.CharField(unique=True, max_length=6, null=True)
     designation = models.CharField(null=False, max_length=30)
     joined = models.DateField('Year-Month')
     phone = models.CharField(null=True, max_length=12)
-    
-    
+       
     def __str__(self):
         return self.name
 
@@ -30,7 +29,6 @@ class TeacherInfo(models.Model):
         return str(self.name)
 
 
-
 class EduLevel(models.Model):
     ''' This is to generate educational levels like
     ssc/hsc etc 
@@ -42,7 +40,6 @@ class EduLevel(models.Model):
 
     def __str__(self):
         return self.grade
-
 
 
 class TeacherQualification(models.Model):
